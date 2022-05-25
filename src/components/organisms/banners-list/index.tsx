@@ -1,31 +1,26 @@
 import React from "react";
 
-import { Container, Grid } from "../../../design-system";
 import { ImageWrapper } from "../../atoms";
+import { useStyles } from "./styles";
 
-export const BannersList: React.FC = () => (
-  <div
-    style={{
-      display: "grid",
-      margin: '0 auto',
-      gridGap: 20,
-      gridTemplateColumns: "repeat(auto-fill, 180px)",
-      gridAutoRows: "minmax(20px, auto)",
-      justifyContent: "center",
-    }}
-  >
-    <ImageWrapper />
+export const BannersList: React.FC = () => {
+  const classes = useStyles();
 
-    <ImageWrapper />
+  return (
+    <div className={classes.root}>
+      <ImageWrapper srcImage="/images/banner1.jpg" />
 
-    <ImageWrapper />
+      <ImageWrapper srcImage="/images/banner2.jpg" />
 
-    <ImageWrapper />
+      <ImageWrapper srcImage="/images/banner3.jpg" />
 
-    <ImageWrapper />
+      <ImageWrapper srcImage="/images/banner4.jpg" />
 
-    <ImageWrapper />
+      <ImageWrapper srcImage="/images/banner2.jpg" />
 
-    <ImageWrapper />
-  </div>
-);
+      <ImageWrapper srcImage="/images/banner1.jpg" />
+
+      <ImageWrapper srcImage="/images/banner3.jpg" />
+    </div>
+  );
+};
