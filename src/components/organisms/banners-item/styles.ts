@@ -7,8 +7,9 @@ export const useStyles = makeStyles(
       margin: "0 0 16px",
       breakInside: "avoid",
       padding: 8,
-      borderRadius: 24,
-      overflow: "hidden",
+      [theme.breakpoints.down("sm")]: {
+        padding: 4,
+      },
 
       "& .MuiSkeleton-root": {
         transform: "none",
@@ -31,7 +32,6 @@ export const useStyles = makeStyles(
     },
 
     imageWithEffect: {
-      borderRadius: 24,
       transform: "scale(1.2)",
       transition: "ease-in-out .5s",
     },
@@ -70,6 +70,7 @@ export const useStyles = makeStyles(
     titleBox: {
       padding: 8,
       overflow: "hidden",
+      overflowX: "hidden",
       textOverflow: "ellipsis",
       display: "-webkit-box",
       WebkitLineClamp: 2,
@@ -83,6 +84,7 @@ export const useStyles = makeStyles(
         color: theme.palette.grey[900],
         textOverflow: "ellipsis",
         overflow: "hidden",
+        overflowX: "hidden",
         maxWidth: "100%",
         whiteSpace: "pre-wrap",
       },

@@ -7,6 +7,7 @@ import { Typography, Skeleton } from "@mui/material";
 import { ZoomActionsButton } from "../../molecules";
 
 import { useStyles } from "./styles";
+import { ITheme, useMediaQuery } from "../../bosons";
 
 interface IBannerItem {
   imageUrl: string;
@@ -14,6 +15,10 @@ interface IBannerItem {
 }
 
 export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
+  const isMobile = useMediaQuery((theme: ITheme) =>
+    theme.breakpoints.down("sm")
+  );
+
   const [hasImageFocus, setHasImageFocus] = useState<boolean>(false);
   const [loadingImage, setLoadingImage] = useState<boolean>(true);
   const classes = useStyles();
@@ -36,7 +41,9 @@ export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
           alt="banner"
           className={clsx(
             classes.image,
-            hasImageFocus ? classes.imageWithEffect : classes.imageWithoutEffect
+            hasImageFocus && !isMobile
+              ? classes.imageWithEffect
+              : classes.imageWithoutEffect
           )}
         />
 
