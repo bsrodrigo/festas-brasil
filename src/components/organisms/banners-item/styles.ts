@@ -66,10 +66,22 @@ export const useStyles = makeStyles(
 
     titleBox: {
       padding: 8,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      WebkitLineClamp: 2,
+      WebkitBoxOrient: "vertical",
+      lineHeight: 16,
+      maxHeight: 32,
+      whiteSpace: "nowrap",
 
       "& p": {
         fontWeight: 700,
         color: theme.palette.grey[900],
+        textOverflow: "ellipsis",
+        overflow: "hidden",
+        maxWidth: "100%",
+        whiteSpace: "pre-wrap",
       },
     },
   }),

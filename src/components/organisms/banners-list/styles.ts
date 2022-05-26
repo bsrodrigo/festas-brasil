@@ -30,6 +30,14 @@ export const useStyles = makeStyles(
       columns: 4,
       columnGap: 16,
       height: "calc(100% + 1000px)",
+
+      [theme.breakpoints.down("lg")]: {
+        columns: 3,
+      },
+
+      [theme.breakpoints.down("md")]: {
+        columns: 2,
+      },
     },
   }),
   { name: "BannersListComponent" }
