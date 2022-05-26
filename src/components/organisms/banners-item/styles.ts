@@ -31,6 +31,7 @@ export const useStyles = makeStyles(
     },
 
     imageWithEffect: {
+      borderRadius: 24,
       transform: "scale(1.2)",
       transition: "ease-in-out .5s",
     },
