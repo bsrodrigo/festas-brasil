@@ -7,6 +7,8 @@ export const useStyles = makeStyles(
       margin: "0 0 16px",
       breakInside: "avoid",
       padding: 8,
+      borderRadius: 24,
+      overflow: "hidden",
 
       "& .MuiSkeleton-root": {
         transform: "none",
