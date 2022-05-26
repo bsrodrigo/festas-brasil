@@ -7,6 +7,10 @@ export const useStyles = makeStyles(
     root: {
       width: "85vw",
       margin: "72px auto",
+
+      [theme.breakpoints.down("sm")]: {
+        width: "95vw",
+      },
     },
 
     titleBox: {
@@ -37,6 +41,10 @@ export const useStyles = makeStyles(
 
       [theme.breakpoints.down("md")]: {
         columns: 2,
+      },
+
+      [theme.breakpoints.down("sm")]: {
+        columnGap: 0,
       },
     },
   }),
