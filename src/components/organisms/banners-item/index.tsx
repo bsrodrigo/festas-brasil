@@ -24,7 +24,7 @@ export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
   const classes = useStyles();
 
   const handleFocusImage = (): void => setHasImageFocus(!hasImageFocus);
-  const handleLoadingImage = (): void => setLoadingImage(!loadingImage);
+  const handleLoadingImage = (): void => setLoadingImage(false);
 
   return (
     <div className={classes.root}>

@@ -20,6 +20,32 @@ export const useStyles = makeStyles(
         border: 0,
       },
     },
+
+    sliderBox: {
+      width: 200,
+      position: "relative",
+
+      "& .MuiSlider-root": {
+        padding: 0,
+        color: "#193e56",
+        height: 72,
+      },
+    },
+
+    testeBox: {
+      position: "absolute",
+      display: "flex",
+      alignItems: "center",
+      top: 0,
+      width: "100%",
+    },
+
+    teste: {
+      height: 72,
+      width: "calc((100% / 10) - 4px)",
+      margin: "0 4px",
+      background: "blue",
+    },
   }),
   { name: "SearchComponent" }
 );
