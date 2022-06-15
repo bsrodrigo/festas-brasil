@@ -69,11 +69,11 @@ export const useStyles = makeStyles(
 
         height: 16,
         padding: 0,
-        color: theme.palette.primary.xxdark,
+        color: theme.palette?.primary.xxdark,
       },
 
       "& .MuiSlider-thumbColorPrimary": {
-        backgroundColor: theme.palette.primary.xdark,
+        backgroundColor: theme.palette?.primary.xdark,
       },
     },
 
