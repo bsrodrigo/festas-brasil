@@ -43,7 +43,7 @@ export const useStyles = makeStyles(
       "& img": {
         maxWidth: "100%",
         borderRadius: "50%",
-        backgroundColor: theme.palette.grey[100],
+        backgroundColor: theme.palette?.grey[100],
       },
 
       "& div": {
@@ -51,7 +51,7 @@ export const useStyles = makeStyles(
         height: 8,
         width: 8,
         borderRadius: "50%",
-        backgroundColor: theme.palette.grey[100],
+        backgroundColor: theme.palette?.grey[100],
       },
     },
 

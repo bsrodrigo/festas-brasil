@@ -16,7 +16,7 @@ interface IBannerItem {
 
 export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
   const isMobile = useMediaQuery((theme: ITheme) =>
-    theme.breakpoints.down("sm")
+    theme.breakpoints?.down("sm")
   );
 
   const [hasImageFocus, setHasImageFocus] = useState<boolean>(false);

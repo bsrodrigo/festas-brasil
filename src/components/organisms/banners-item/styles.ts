@@ -7,7 +7,7 @@ export const useStyles = makeStyles(
       margin: "0 0 16px",
       breakInside: "avoid",
       padding: 8,
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints?.down("sm")]: {
         padding: 4,
       },
 
@@ -81,7 +81,7 @@ export const useStyles = makeStyles(
 
       "& p": {
         fontWeight: 700,
-        color: theme.palette.grey[900],
+        color: theme.palette?.grey[900],
         textOverflow: "ellipsis",
         overflow: "hidden",
         overflowX: "hidden",

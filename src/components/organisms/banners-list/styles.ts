@@ -8,14 +8,14 @@ export const useStyles = makeStyles(
       width: "85vw",
       margin: "72px auto",
 
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints?.down("sm")]: {
         width: "95vw",
       },
     },
 
     titleBox: {
       textAlign: "center",
-      color: theme.palette.grey[900],
+      color: theme.palette?.grey[900],
       textTransform: "uppercase",
       fontWeight: 600,
 
@@ -24,8 +24,8 @@ export const useStyles = makeStyles(
         margin: "auto",
         borderRadius: 18,
         border: "2px solid",
-        backgroundColor: theme.palette.grey[900],
-        borderColor: theme.palette.grey[900],
+        backgroundColor: theme.palette?.grey[900],
+        borderColor: theme.palette?.grey[900],
       },
     },
 
@@ -35,15 +35,15 @@ export const useStyles = makeStyles(
       columnGap: 16,
       height: "calc(100% + 1000px)",
 
-      [theme.breakpoints.down("lg")]: {
+      [theme.breakpoints?.down("lg")]: {
         columns: 3,
       },
 
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints?.down("md")]: {
         columns: 2,
       },
 
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints?.down("sm")]: {
         columnGap: 0,
       },
     },
