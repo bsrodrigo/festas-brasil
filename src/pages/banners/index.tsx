@@ -18,7 +18,7 @@ export const Banners: React.FC = () => {
         onChange={(event) => setFilter(event?.currentTarget?.value)}
       />
       <BannersList filter={filter} />
-      {/* <MusicPlayer /> */}
+      <MusicPlayer />
     </div>
   );
 };
