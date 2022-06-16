@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@material-ui/core";
 import { IThemeOptions } from "./components/bosons";
 
 export const Theme = createTheme({

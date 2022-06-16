@@ -4,7 +4,7 @@ import { BannerItem } from "../../organisms";
 import { partiesListMock } from "../../../utils";
 
 import { useStyles } from "./styles";
-import { Typography } from "@mui/material";
+import { Typography } from "@material-ui/core";
 
 interface IBannerList {
   filter: string;

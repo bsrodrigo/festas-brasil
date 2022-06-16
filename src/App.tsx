@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@material-ui/core";
 import { Banners } from "./pages";
 import { Theme } from "./theme";
 

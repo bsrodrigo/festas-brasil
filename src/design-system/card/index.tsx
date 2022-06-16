@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card as MuiCard, CardProps } from "@mui/material";
+import { Card as MuiCard, CardProps } from "@material-ui/core";
 
 interface ICard extends CardProps {}
 

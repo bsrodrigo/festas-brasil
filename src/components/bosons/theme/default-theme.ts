@@ -1,5 +1,5 @@
 import { IThemeOptions } from "../../bosons/theme";
-import { createTheme } from "@mui/material";
+import { createTheme } from "@material-ui/core";
 
 export const Theme = createTheme({
   overrides: {

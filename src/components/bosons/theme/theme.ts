@@ -1,9 +1,9 @@
 import {
   Theme as MuiTheme,
-  PaletteOptions,
   ThemeOptions,
   PaletteColorOptions,
-} from "@mui/material";
+} from "@material-ui/core";
+import { PaletteOptions } from "@material-ui/core/styles/createPalette";
 
 type CustomPaletteColorOptions = PaletteColorOptions & {
   xxsoft?: string;

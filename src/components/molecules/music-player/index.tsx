@@ -1,10 +1,10 @@
-import { Fade, IconButton, Slider, Typography } from "@mui/material";
+import { Fade, IconButton, Slider, Typography } from "@material-ui/core";
 import {
   PauseRounded,
   PlayArrowRounded,
   SkipPreviousRounded,
   SkipNextRounded,
-} from "@mui/icons-material";
+} from "@material-ui/icons";
 import React, { useState, useRef, useEffect } from "react";
 import { useStyles } from "./styles";
 import clsx from "clsx";
@@ -100,7 +100,7 @@ export const MusicPlayer = () => {
 
   return (
     <div
-      className={clsx(classes.root, showPlayer && classes.rootOpen)}
+      className={clsx(classes.root, true && classes.rootOpen)}
       onMouseEnter={() => setShowPlayer(true)}
       onMouseLeave={() => setShowPlayer(false)}
     >

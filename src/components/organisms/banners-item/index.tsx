@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 import clsx from "clsx";
 
-import { Typography, Skeleton } from "@mui/material";
+import { Typography } from "@material-ui/core";
+import { Skeleton } from "@material-ui/lab";
 
 import { ZoomActionsButton } from "../../molecules";
 
@@ -60,9 +61,7 @@ export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
       </div>
 
       <div className={classes.titleBox}>
-        <Typography variant="body2" color="grey">
-          {name}
-        </Typography>
+        <Typography variant="body2">{name}</Typography>
       </div>
     </div>
   );

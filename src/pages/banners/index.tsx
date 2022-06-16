@@ -13,7 +13,7 @@ export const Banners: React.FC = () => {
         margin: "auto",
       }}
     >
-      {/* <MusicPlayer /> */}
+      <MusicPlayer />
       <InputSearch
         onChange={(event) => setFilter(event?.currentTarget?.value)}
       />

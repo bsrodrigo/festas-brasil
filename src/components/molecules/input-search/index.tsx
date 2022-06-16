@@ -9,8 +9,8 @@ import {
   BaseTextFieldProps,
   TextFieldProps,
   StandardTextFieldProps,
-} from "@mui/material";
-import { Search } from "@mui/icons-material";
+} from "@material-ui/core";
+import { Search } from "@material-ui/icons";
 
 import { useStyles } from "./styles";
 
@@ -22,6 +22,7 @@ export const InputSearch: React.FC<IInputSearch> = ({ ...props }) => {
   return (
     <div className={classes.root}>
       <TextField
+        variant="outlined"
         {...props}
         placeholder="Buscar festa..."
         InputProps={{

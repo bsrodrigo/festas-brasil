@@ -65,13 +65,20 @@ export const useStyles = makeStyles(
       "& .MuiSlider-root": {
         width: "100%",
 
-        height: 16,
+        height: 12,
         padding: 0,
         color: theme.palette.primary.xxdark,
       },
 
-      "& .MuiSlider-thumbColorPrimary": {
+      "& .MuiSlider-rail, MuiSlider-track": {
+        height: 12,
+        borderRadius: 8,
+      },
+
+      "& .MuiSlider-thumb ": {
         backgroundColor: theme.palette.primary.xdark,
+        height: 22,
+        width: 22,
       },
     },
 

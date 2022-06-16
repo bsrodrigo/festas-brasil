@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React, { forwardRef } from "react";
 
-import { Grid as MuiGrid, GridProps } from "@mui/material";
+import { Grid as MuiGrid, GridProps } from "@material-ui/core";
 
 type PropsInput = GridProps;
 
