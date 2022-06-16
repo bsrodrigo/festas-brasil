@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TextField, Typography } from "@mui/material";
 import { InputSearch, MusicPlayer } from "../../components/molecules";
 import { BannersList } from "../../components/organisms";
 
@@ -14,7 +13,7 @@ export const Banners: React.FC = () => {
         margin: "auto",
       }}
     >
-      <MusicPlayer />
+      {/* <MusicPlayer /> */}
       <InputSearch
         onChange={(event) => setFilter(event?.currentTarget?.value)}
       />
