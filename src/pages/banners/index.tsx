@@ -14,11 +14,11 @@ export const Banners: React.FC = () => {
         margin: "auto",
       }}
     >
+      <MusicPlayer />
       <InputSearch
         onChange={(event) => setFilter(event?.currentTarget?.value)}
       />
       <BannersList filter={filter} />
-      <MusicPlayer />
     </div>
   );
 };

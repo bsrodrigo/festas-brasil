@@ -1,5 +1,4 @@
-import { makeStyles } from "@mui/styles";
-import { ITheme } from "../../bosons";
+import { ITheme, makeStyles } from "../../bosons";
 
 export const useStyles = makeStyles(
   (theme: ITheme) => ({

@@ -1,6 +1,4 @@
-import { makeStyles } from "@mui/styles";
-
-import { ITheme } from "../../bosons";
+import { ITheme, makeStyles } from "../../bosons";
 
 export const useStyles = makeStyles(
   (theme: ITheme) => ({
@@ -20,7 +18,7 @@ export const useStyles = makeStyles(
       transition: "ease-in-out .8s",
 
       "@media (max-width: 799px)": {
-        right: "calc(-100% + 39px) ",
+        right: "calc(-100% + 53px) ",
       },
     },
 
@@ -43,7 +41,7 @@ export const useStyles = makeStyles(
       "& img": {
         maxWidth: "100%",
         borderRadius: "50%",
-        backgroundColor: theme.palette?.grey[100],
+        backgroundColor: theme.palette.grey[100],
       },
 
       "& div": {
@@ -51,7 +49,7 @@ export const useStyles = makeStyles(
         height: 8,
         width: 8,
         borderRadius: "50%",
-        backgroundColor: theme.palette?.grey[100],
+        backgroundColor: theme.palette.grey[100],
       },
     },
 
@@ -69,11 +67,11 @@ export const useStyles = makeStyles(
 
         height: 16,
         padding: 0,
-        color: theme.palette?.primary.xxdark,
+        color: theme.palette.primary.xxdark,
       },
 
       "& .MuiSlider-thumbColorPrimary": {
-        backgroundColor: theme.palette?.primary.xdark,
+        backgroundColor: theme.palette.primary.xdark,
       },
     },
 
