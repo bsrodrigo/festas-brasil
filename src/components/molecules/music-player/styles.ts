@@ -70,7 +70,7 @@ export const useStyles = makeStyles(
         color: theme.palette.primary.xxdark,
       },
 
-      "& .MuiSlider-rail, MuiSlider-track": {
+      "& .MuiSlider-rail, .MuiSlider-track": {
         height: 12,
         borderRadius: 8,
       },

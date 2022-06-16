@@ -100,7 +100,7 @@ export const MusicPlayer = () => {
 
   return (
     <div
-      className={clsx(classes.root, true && classes.rootOpen)}
+      className={clsx(classes.root, showPlayer && classes.rootOpen)}
       onMouseEnter={() => setShowPlayer(true)}
       onMouseLeave={() => setShowPlayer(false)}
     >
