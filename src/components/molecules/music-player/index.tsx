@@ -12,9 +12,13 @@ import clsx from "clsx";
 import { musicType, partiesListMock } from "../../../utils";
 interface IMusicPlayer {
   musicFixed?: musicType;
+  playMusic?: boolean;
 }
 
-export const MusicPlayer: React.FC<IMusicPlayer> = ({ musicFixed }) => {
+export const MusicPlayer: React.FC<IMusicPlayer> = ({
+  musicFixed,
+  playMusic,
+}) => {
   const classes = useStyles();
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -123,8 +127,8 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({ musicFixed }) => {
   };
 
   useEffect(() => {
-    if (!currentMusic || isChangingMusic) handleNextMusic();
-  }, [currentMusic, isChangingMusic]);
+    if (playMusic || isChangingMusic) handleNextMusic();
+  }, [playMusic, isChangingMusic]);
 
   useEffect(() => {
     if (musicFixed)
@@ -146,7 +150,10 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({ musicFixed }) => {
       <div>
         <div className={clsx(classes.disc, isPlaying && classes.spinAnimation)}>
           <div />
-          <img src="/images/banner1.jpg" alt="fundo do disco" />
+          <img
+            src={currentMusic?.imageSrc || partiesListMock[0]?.music?.imageSrc}
+            alt="fundo do disco"
+          />
         </div>
       </div>
 

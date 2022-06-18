@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { InputSearch, MusicPlayer } from "../../components/molecules";
-import { BannersList } from "../../components/organisms";
+import { AuthorizationModal, BannersList } from "../../components/organisms";
 import { musicType, partiesListMock } from "../../utils";
 
 import { useStyles } from "./styles";
@@ -8,6 +8,7 @@ import { useStyles } from "./styles";
 export const Banners: React.FC = () => {
   const [filter, setFilter] = useState<string>("");
   const [musicFixed, setMusicFixed] = useState<musicType>();
+  const [playMusic, setPlayMusic] = useState<boolean>();
 
   const classes = useStyles();
 
@@ -25,13 +26,18 @@ export const Banners: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <MusicPlayer musicFixed={musicFixed} />
+      <MusicPlayer musicFixed={musicFixed} playMusic={playMusic} />
       <InputSearch
         onChange={(event) => setFilter(event?.currentTarget?.value)}
       />
       <BannersList
         items={partiesListFiltered}
         onFixedMusic={handleFixedMusic}
+      />
+      <AuthorizationModal
+        onPlayMusic={() => {
+          setPlayMusic(true);
+        }}
       />
     </div>
   );
