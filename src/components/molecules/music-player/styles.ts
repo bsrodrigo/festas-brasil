@@ -7,9 +7,9 @@ export const useStyles = makeStyles(
       maxWidth: 800,
       display: "flex",
       alignItems: "center",
-      zIndex: 2,
+      zIndex: 3,
       background: "#fff",
-      padding: "8px 24px",
+      padding: "16px 24px",
       position: "fixed",
       bottom: "8px",
       right: "-747px",
@@ -53,9 +53,9 @@ export const useStyles = makeStyles(
       },
     },
 
-    timeBox: {
+    playerBox: {
       width: "100%",
-      margin: "8px auto 0",
+      margin: "auto",
     },
 
     sliderBox: {
@@ -82,10 +82,24 @@ export const useStyles = makeStyles(
       },
     },
 
+    timeBox: {
+      display: "flex",
+      width: "100%",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+
+    controlsBox: {
+      "& .MuiButtonBase-root": {
+        padding: 0,
+      },
+    },
+
     calculateTimeBox: {
       display: "flex",
       justifyContent: "flex-end",
       marginRight: 4,
+      whiteSpace: "nowrap",
     },
 
     testeBox: {

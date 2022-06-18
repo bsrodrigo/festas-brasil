@@ -13,9 +13,14 @@ import { ITheme, useMediaQuery } from "../../bosons";
 interface IBannerItem {
   imageUrl: string;
   name: string;
+  onOpen: () => void;
 }
 
-export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
+export const BannerItem: React.FC<IBannerItem> = ({
+  imageUrl,
+  name,
+  onOpen,
+}) => {
   const isMobile = useMediaQuery((theme: ITheme) =>
     theme.breakpoints?.down("sm")
   );
@@ -28,12 +33,13 @@ export const BannerItem: React.FC<IBannerItem> = ({ imageUrl, name }) => {
   const handleLoadingImage = (): void => setLoadingImage(false);
 
   return (
-    <div className={classes.root}>
-      <div
-        className={classes.imageBox}
-        onMouseEnter={handleFocusImage}
-        onMouseLeave={handleFocusImage}
-      >
+    <div
+      className={classes.root}
+      onClick={onOpen}
+      onMouseEnter={handleFocusImage}
+      onMouseLeave={handleFocusImage}
+    >
+      <div className={classes.imageBox}>
         {loadingImage && <Skeleton height={300} />}
 
         <img

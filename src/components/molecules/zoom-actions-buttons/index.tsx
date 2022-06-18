@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ShareOutlined, FontDownloadOutlined } from "@material-ui/icons";
+import { ShareOutlined, CloudDownloadOutlined } from "@material-ui/icons";
 import { IconButton, Zoom } from "@material-ui/core";
 
 import { useStyles } from "./styles";
@@ -33,7 +33,7 @@ export const ZoomActionsButton: React.FC<IZoomActionsButton> = ({
             // TODO criar função de download da imagem
             onClick={() => console.log("botão download")}
           >
-            <FontDownloadOutlined fontSize="inherit" />
+            <CloudDownloadOutlined fontSize="inherit" />
           </IconButton>
         </div>
       </div>

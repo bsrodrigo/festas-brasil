@@ -1,25 +1,22 @@
 import React, { useMemo } from "react";
 
 import { BannerItem } from "../../organisms";
-import { partiesListMock } from "../../../utils";
+import { musicType, partiesListMock, partyType } from "../../../utils";
 
 import { useStyles } from "./styles";
 import { Typography } from "@material-ui/core";
 
 interface IBannerList {
-  filter: string;
+  items: partyType[];
+  onFixedMusic: (music: musicType) => void;
 }
 
-export const BannersList: React.FC<IBannerList> = ({ filter }) => {
+export const BannersList: React.FC<IBannerList> = ({ items, onFixedMusic }) => {
   const classes = useStyles();
 
-  const partiesListFiltered = useMemo(
-    () =>
-      partiesListMock?.filter((party) =>
-        party?.name?.toLocaleLowerCase()?.includes(filter?.toLocaleLowerCase())
-      ),
-    [filter]
-  );
+  const handleOpen = (party: partyType) => {
+    onFixedMusic(party?.music);
+  };
 
   return (
     <div className={classes.root}>
@@ -29,11 +26,12 @@ export const BannersList: React.FC<IBannerList> = ({ filter }) => {
       </div>
 
       <div className={classes.gridImages}>
-        {partiesListFiltered?.map((party, index) => (
+        {items?.map((party, index) => (
           <BannerItem
             key={`party-${index}`}
-            imageUrl={party?.imageUrl}
+            imageUrl={party?.imageSrc}
             name={party?.name}
+            onOpen={() => handleOpen(items[index])}
           />
         ))}
       </div>

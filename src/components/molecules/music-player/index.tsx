@@ -1,4 +1,5 @@
-import { Fade, IconButton, Slider, Typography } from "@material-ui/core";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { IconButton, Slider, Typography } from "@material-ui/core";
 import {
   PauseRounded,
   PlayArrowRounded,
@@ -8,95 +9,127 @@ import {
 import React, { useState, useRef, useEffect } from "react";
 import { useStyles } from "./styles";
 import clsx from "clsx";
+import { musicType, partiesListMock } from "../../../utils";
+interface IMusicPlayer {
+  musicFixed?: musicType;
+}
 
-export const MusicPlayer = () => {
+export const MusicPlayer: React.FC<IMusicPlayer> = ({ musicFixed }) => {
   const classes = useStyles();
 
-  // state
   const [loading, setLoading] = useState<boolean>(true);
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
+  const [currentMusic, setCurrentMusic] = useState<musicType>();
+  const [isChangingMusic, setIsChangingMusic] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
 
-  // references
-  const audioPlayer = useRef<any>(); // reference our audio component
-  const progressBar = useRef<any>(); // reference our progress bar
-  const animationRef = useRef<any>(); // reference the animation
+  const audioPlayer = useRef<any>();
+  const animationRef = useRef<any>();
 
-  const calculateTime = (secs) => {
-    const minutes = Math.floor(secs / 60);
-    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const seconds = Math.floor(secs % 60);
-    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${returnedMinutes}:${returnedSeconds}`;
+  const calculateTime = (secs: number = 0): string => {
+    const minutes = Math.floor(secs / 60) || 0;
+    const seconds = Math.floor(secs % 60) || 0;
+
+    const timeFormatted = `
+    ${("00" + minutes).slice(-2)}:
+    ${("00" + seconds).slice(-2)}`;
+    return timeFormatted;
   };
 
-  const togglePlayPause = () => {
-    const prevValue = isPlaying;
-    setIsPlaying(!prevValue);
-    if (!prevValue) {
-      audioPlayer.current.play();
-      animationRef.current = requestAnimationFrame(whilePlaying);
-    } else {
-      audioPlayer.current.pause();
-      cancelAnimationFrame(animationRef.current);
+  const handlePause = (): void => {
+    setIsPlaying(false);
+    audioPlayer.current.pause();
+    cancelAnimationFrame(animationRef.current);
+  };
+
+  const handlePlay = (): void => {
+    setIsPlaying(true);
+    audioPlayer.current.play();
+    updateDuration();
+  };
+
+  const togglePlayPause = (): void => {
+    if (isPlaying) {
+      handlePause();
+      return;
     }
+
+    handlePlay();
   };
 
-  const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current.currentTime;
-    changePlayerCurrentTime();
-    animationRef.current = requestAnimationFrame(whilePlaying);
+  const handleChangeMusic = (music: musicType): void => {
+    handlePause();
+    setIsChangingMusic(false);
+
+    audioPlayer.current!.src = music?.src;
+    audioPlayer.current.load();
+
+    setCurrentMusic(music);
+    handlePlay();
   };
 
-  const changeRange = (value: number | number[]) => {
-    // audioPlayer.current.currentTime = progressBar.current.value;
-    audioPlayer.current.currentTime = value;
-    changePlayerCurrentTime();
+  const handleNextMusic = (): void => {
+    if (musicFixed) {
+      handleChangeMusic({ ...musicFixed, index: currentMusic?.index ?? 0 });
+      return;
+    }
+
+    const currentIndex = currentMusic?.index ?? 0;
+    const isLastMusic = currentIndex + 1 === partiesListMock?.length;
+    const index = currentMusic && !isLastMusic ? currentIndex + 1 : 0;
+
+    const newMusic = { index, ...partiesListMock[index]?.music };
+    handleChangeMusic(newMusic);
   };
 
-  const changePlayerCurrentTime = () => {
-    progressBar.current.style.setProperty(
-      "--seek-before-width",
-      `${(progressBar.current.value / duration) * 100}%`
-    );
-    setCurrentTime(progressBar.current.value);
+  const handlePreviousMusic = (): void => {
+    const index = currentMusic ? (currentMusic?.index || 1) - 1 : 0;
+    const newMusic = { index, ...partiesListMock[index]?.music };
+
+    handleChangeMusic(newMusic);
   };
 
-  const backThirty = () => {
-    const newTime = Number(progressBar.current.value) - 30;
-    progressBar.current.value = newTime;
-    changeRange(newTime);
+  const updateDuration = (): void => {
+    cancelAnimationFrame(animationRef.current);
+
+    const time = audioPlayer.current.currentTime;
+    const currentDuration = audioPlayer.current.duration;
+
+    setDuration(currentDuration);
+    setCurrentTime(time);
+
+    if (time > 0 && calculateTime(time) === calculateTime(currentDuration)) {
+      setIsChangingMusic(true);
+      return;
+    }
+
+    animationRef.current = requestAnimationFrame(updateDuration);
   };
 
-  const forwardThirty = () => {
-    const newTime = Number(progressBar.current.value) + 30;
-    progressBar.current.value = newTime;
-    changeRange(newTime);
+  const handleChangeCurrentTime = (value: number | number[]): void => {
+    const newValue = Array.isArray(value) ? 0 : value;
+    audioPlayer.current!.currentTime = newValue;
+    setCurrentTime(newValue);
   };
 
-  const handleProgressChange = (e: any, value: any) => {
-    audioPlayer.current!.currentTime = value;
-    e.preventDefault();
+  const handleProgressChange = (
+    event: React.ChangeEvent<{}>,
+    value: number | number[]
+  ): void => {
+    handleChangeCurrentTime(value);
+    event.preventDefault();
   };
 
   useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
-    setDuration(seconds);
-    progressBar.current.max = seconds;
-  }, [
-    audioPlayer?.current?.loadedmetadata,
-    audioPlayer?.current?.readyState,
-    loading,
-  ]);
+    if (!currentMusic || isChangingMusic) handleNextMusic();
+  }, [currentMusic, isChangingMusic]);
 
   useEffect(() => {
-    if (!isPlaying) {
-      // audioPlayer.current.play();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]);
+    if (musicFixed)
+      handleChangeMusic({ ...musicFixed, index: currentMusic?.index ?? 0 });
+  }, [musicFixed]);
 
   return (
     <div
@@ -105,9 +138,9 @@ export const MusicPlayer = () => {
       onMouseLeave={() => setShowPlayer(false)}
     >
       <audio
+        loop={true}
         onLoad={() => setLoading(!loading)}
         ref={audioPlayer}
-        src="/sounds/acorda-pedrinho.mp3"
         preload="metadata"
       ></audio>
       <div>
@@ -117,40 +150,43 @@ export const MusicPlayer = () => {
         </div>
       </div>
 
-      <div className={classes.timeBox}>
-        <div>
-          <IconButton onClick={backThirty}>
-            <SkipPreviousRounded />
-          </IconButton>
-          <IconButton onClick={togglePlayPause}>
-            {isPlaying ? <PauseRounded /> : <PlayArrowRounded />}
-          </IconButton>
-          <IconButton onClick={forwardThirty}>
-            <SkipNextRounded />
-          </IconButton>
-        </div>
+      <div className={classes.playerBox}>
+        <Typography variant="body1">
+          {currentMusic?.title} - {currentMusic?.artist}
+        </Typography>
+
         <div className={classes.sliderBox}>
-          {/* <Slider
-            ref={progressBar}
-            aria-label="Volume"
-            max={duration}
-            value={currentTime}
-            onChange={(_, value) => changeRange(value)}
-            onChangeCommitted={(e, v) => console.log({ e, v })}
-          /> */}
           <Slider
-            ref={progressBar}
             min={0}
             max={duration}
             value={currentTime}
             onChange={handleProgressChange}
-            aria-labelledby="continuous-slider"
+            aria-labelledby="player-slider"
           />
         </div>
-        <div className={classes.calculateTimeBox}>
-          <Typography variant="caption">
-            {calculateTime(currentTime)}
-          </Typography>
+
+        <div className={classes.timeBox}>
+          <div className={classes.controlsBox}>
+            {/* TODO adicionar disabled={!!musicFixed} quando o fechamento dos modais estiver feito */}
+            <IconButton onClick={handlePreviousMusic}>
+              <SkipPreviousRounded />
+            </IconButton>
+            <IconButton onClick={togglePlayPause}>
+              {isPlaying ? (
+                <PauseRounded fontSize="large" />
+              ) : (
+                <PlayArrowRounded fontSize="large" />
+              )}
+            </IconButton>
+            <IconButton onClick={handleNextMusic}>
+              <SkipNextRounded />
+            </IconButton>
+          </div>
+          <div className={classes.calculateTimeBox}>
+            <Typography variant="caption">
+              {calculateTime(currentTime)} / {calculateTime(duration)}
+            </Typography>
+          </div>
         </div>
       </div>
     </div>
