@@ -141,6 +141,11 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({
       onMouseEnter={() => setShowPlayer(true)}
       onMouseLeave={() => setShowPlayer(false)}
     >
+      <img
+        className={classes.musicGif}
+        src="/images/music.gif"
+        alt="music animation"
+      />
       <audio
         loop={true}
         onLoad={() => setLoading(!loading)}

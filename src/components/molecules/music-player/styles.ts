@@ -28,6 +28,13 @@ export const useStyles = makeStyles(
       transition: "ease-in-out .8s",
     },
 
+    musicGif: {
+      position: "absolute",
+      bottom: 30,
+      right: 0,
+      width: 180,
+    },
+
     disc: {
       display: "flex",
       alignItems: "center",
