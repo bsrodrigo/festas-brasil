@@ -7,7 +7,7 @@ export const useStyles = makeStyles(
       maxWidth: 800,
       display: "flex",
       alignItems: "center",
-      zIndex: 3,
+      zIndex: 99999999,
       background: "#fff",
       padding: "16px 24px",
       position: "fixed",

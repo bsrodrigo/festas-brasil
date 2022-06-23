@@ -5,12 +5,12 @@ import { Button, Dialog, DialogTitle, Typography } from "@material-ui/core";
 import { useStyles } from "./styles";
 
 type Props = {
-  cancelText: string;
-  onCancel: () => void;
+  cancelText?: string;
+  onCancel?: () => void;
   onClose: () => void;
   open: boolean;
-  onSubmit: () => void;
-  submitText: string;
+  onSubmit?: () => void;
+  submitText?: string;
   title: string;
   children: ReactNode;
 };

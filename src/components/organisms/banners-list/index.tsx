@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 
-import { BannerItem } from "../../organisms";
+import { BannerItem, BannerModal } from "../../organisms";
 import { musicType, partiesListMock, partyType } from "../../../utils";
 
 import { useStyles } from "./styles";
@@ -12,10 +12,21 @@ interface IBannerList {
 }
 
 export const BannersList: React.FC<IBannerList> = ({ items, onFixedMusic }) => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [partySelected, setPartySelected] = useState<partyType>();
+
   const classes = useStyles();
 
   const handleOpen = (party: partyType) => {
     onFixedMusic(party?.music);
+    setPartySelected(party);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    onFixedMusic(null);
+    setPartySelected(null);
+    setOpen(false);
   };
 
   return (
@@ -35,6 +46,13 @@ export const BannersList: React.FC<IBannerList> = ({ items, onFixedMusic }) => {
           />
         ))}
       </div>
+
+      <BannerModal
+        open={open}
+        party={partySelected}
+        onClose={handleClose}
+        onOpen={() => setOpen(true)}
+      />
     </div>
   );
 };

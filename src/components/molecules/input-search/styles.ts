@@ -3,12 +3,22 @@ import { ITheme, makeStyles } from "../../bosons";
 export const useStyles = makeStyles(
   (theme: ITheme) => ({
     root: {
+      width: "100%",
       display: "flex",
       alignItems: "center",
       placeContent: "center",
 
+      "& .MuiFormControl-root": {
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        placeContent: "center",
+        margin: 16,
+      },
+
       "& .MuiOutlinedInput-root": {
-        width: 400,
+        width: "100%",
+        maxWidth: 600,
         borderRadius: 24,
         backgroundColor: "#e4ebf5",
         boxShadow: "0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff",

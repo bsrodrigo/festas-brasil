@@ -11,9 +11,14 @@ export const useStyles = makeStyles(
       },
 
       "& .MuiSkeleton-root": {
+        // position: "absolute",
         transform: "none",
         marginBottom: -20,
       },
+    },
+
+    invisible: {
+      display: "none",
     },
 
     imageBox: {
@@ -25,9 +30,9 @@ export const useStyles = makeStyles(
     },
 
     image: {
-      width: "100%",
+      width: "calc(100% + 4px)",
       borderRadius: 24,
-      marginBottom: "-4px",
+      margin: "-2px 0 -4px -2px",
     },
 
     imageWithEffect: {

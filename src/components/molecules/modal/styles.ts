@@ -42,8 +42,6 @@ export const useStyles = makeStyles((theme: any) => ({
   },
 
   paper: {
-    borderBottomLeftRadius: "0 !important",
-    borderBottomRightRadius: "0 !important",
     padding: 25,
 
     [theme.breakpoints.up("md")]: {
@@ -63,10 +61,10 @@ export const useStyles = makeStyles((theme: any) => ({
 
   paperScrollPaper: {
     margin: 0,
-    maxWidth: "initial",
+    width: "100%",
 
     [theme.breakpoints.up("md")]: {
-      maxWidth: 550,
+      maxWidth: 500,
     },
   },
 }));

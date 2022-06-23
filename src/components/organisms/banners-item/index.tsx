@@ -40,7 +40,7 @@ export const BannerItem: React.FC<IBannerItem> = ({
       onMouseLeave={handleFocusImage}
     >
       <div className={classes.imageBox}>
-        {loadingImage && <Skeleton height={300} />}
+        {loadingImage && <Skeleton height={600} />}
 
         <img
           onLoad={handleLoadingImage}
@@ -48,6 +48,7 @@ export const BannerItem: React.FC<IBannerItem> = ({
           alt="banner"
           className={clsx(
             classes.image,
+            loadingImage && classes.invisible,
             hasImageFocus && !isMobile
               ? classes.imageWithEffect
               : classes.imageWithoutEffect
