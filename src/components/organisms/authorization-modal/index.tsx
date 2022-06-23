@@ -39,8 +39,8 @@ export const AuthorizationModal: React.FC<Props> = ({ onPlayMusic }) => {
       </Typography>
       <br />
       <Typography>
-        Cada festa pode ter alguma música que te faça dela e queremos
-        que você tenha uma imersão completa nessas diferentes festas
+        Cada festa pode ter alguma música que a faça ser lembrada e queremos
+        que você tenha uma imersão completa nessas diferentes comemorações
         <b> culturais e regionais </b>
       </Typography>
     </Modal>

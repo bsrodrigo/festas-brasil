@@ -34,8 +34,6 @@ export const BannerItem: React.FC<IBannerItem> = ({
 
   const handleDownloadImage = () => {
     const link = document.createElement("a");
-    // If you don't know the name or want to use
-    // the webserver default set name = ''
     link.setAttribute("download", name);
     link.href = imageUrl;
     document.body.appendChild(link);
