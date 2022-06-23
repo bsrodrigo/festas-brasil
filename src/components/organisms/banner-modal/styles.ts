@@ -31,6 +31,7 @@ export const useStyles = makeStyles((theme: ITheme) => ({
   contentBox: {
     margin: 12,
     width: "100%",
+    paddingBottom: 100,
 
     "& button": {
       marginTop: 16,
@@ -82,6 +83,7 @@ export const useStyles = makeStyles((theme: ITheme) => ({
 
     "& button:first-child": {
       marginTop: 16,
+      marginRight: 8,
 
       [theme.breakpoints.up("sm")]: {
         marginTop: 0,

@@ -63,7 +63,9 @@ export const BannerModal: React.FC<IBannerModal> = ({
                 <Typography variant="body1">{item?.description}</Typography>
               </div>
             ))}
-
+            <Button variant="text" color="primary" onClick={onClose}>
+              Fechar
+            </Button>
             <Button variant="contained" color="primary" onClick={handleClick}>
               Ver mais
             </Button>
