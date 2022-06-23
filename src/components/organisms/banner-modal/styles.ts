@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme: ITheme) => ({
     justifyContent: "flex-start",
     alignItems: "start",
 
-    "@media (max-width: 900px)": {
+    "@media (max-width: 950px)": {
       justifyContent: "center",
       maxWidth: "100%",
       width: "100%",
@@ -19,10 +19,10 @@ export const useStyles = makeStyles((theme: ITheme) => ({
     margin: 12,
 
     "& img": {
-      height: "75vh",
+      height: "85vh",
       borderRadius: 16,
 
-      "@media (max-width: 900px)": {
+      "@media (max-width: 950px)": {
         height: "auto",
         width: "100%",
       },

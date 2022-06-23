@@ -131,7 +131,7 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({
   }, [playMusic, isChangingMusic]);
 
   useEffect(() => {
-    if (musicFixed)
+    if (musicFixed && currentMusic)
       handleChangeMusic({ ...musicFixed, index: currentMusic?.index ?? 0 });
   }, [musicFixed]);
 
@@ -141,11 +141,6 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({
       onMouseEnter={() => setShowPlayer(true)}
       onMouseLeave={() => setShowPlayer(false)}
     >
-      <img
-        className={classes.musicGif}
-        src="/images/music.gif"
-        alt="music animation"
-      />
       <audio
         loop={true}
         onLoad={() => setLoading(!loading)}
@@ -164,7 +159,8 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({
 
       <div className={classes.playerBox}>
         <Typography variant="body1">
-          {currentMusic?.title} - {currentMusic?.artist}
+          {currentMusic?.title}
+          {currentMusic?.artist && ` - ${currentMusic.artist}`}
         </Typography>
 
         <div className={classes.sliderBox}>
@@ -179,8 +175,7 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({
 
         <div className={classes.timeBox}>
           <div className={classes.controlsBox}>
-            {/* TODO adicionar disabled={!!musicFixed} quando o fechamento dos modais estiver feito */}
-            <IconButton onClick={handlePreviousMusic}>
+            <IconButton onClick={handlePreviousMusic} disabled={!!musicFixed}>
               <SkipPreviousRounded />
             </IconButton>
             <IconButton onClick={togglePlayPause}>
@@ -190,7 +185,7 @@ export const MusicPlayer: React.FC<IMusicPlayer> = ({
                 <PlayArrowRounded fontSize="large" />
               )}
             </IconButton>
-            <IconButton onClick={handleNextMusic}>
+            <IconButton onClick={handleNextMusic} disabled={!!musicFixed}>
               <SkipNextRounded />
             </IconButton>
           </div>

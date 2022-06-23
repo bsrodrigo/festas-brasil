@@ -6,11 +6,9 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
-import { CloseOutlined, ArrowBackOutlined } from "@material-ui/icons";
-import React, { ReactNode, useState } from "react";
+import { ArrowBackOutlined } from "@material-ui/icons";
+import React from "react";
 import { partyType } from "../../../utils";
-
-import { Modal } from "../../molecules";
 
 import { useStyles } from "./styles";
 
@@ -18,14 +16,12 @@ type IBannerModal = {
   open: boolean;
   party: partyType;
   onClose: () => void;
-  onOpen: () => void;
 };
 
 export const BannerModal: React.FC<IBannerModal> = ({
   open,
   party,
   onClose,
-  onOpen,
 }) => {
   const classes = useStyles();
 
@@ -49,9 +45,6 @@ export const BannerModal: React.FC<IBannerModal> = ({
           <ArrowBackOutlined />
         </IconButton>
         <Typography variant="h5">{party?.name}</Typography>
-        {/* <IconButton onClick={onClose}>
-          <CloseOutlined />
-        </IconButton> */}
       </DialogTitle>
 
       <DialogContent>

@@ -32,6 +32,17 @@ export const BannerItem: React.FC<IBannerItem> = ({
   const handleFocusImage = (): void => setHasImageFocus(!hasImageFocus);
   const handleLoadingImage = (): void => setLoadingImage(false);
 
+  const handleDownloadImage = () => {
+    const link = document.createElement("a");
+    // If you don't know the name or want to use
+    // the webserver default set name = ''
+    link.setAttribute("download", name);
+    link.href = imageUrl;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
   return (
     <div
       className={classes.root}
@@ -64,7 +75,11 @@ export const BannerItem: React.FC<IBannerItem> = ({
               : classes.deactivateHoverEffect
           )}
         />
-        <ZoomActionsButton show={hasImageFocus} />
+        <ZoomActionsButton
+          show={hasImageFocus}
+          onOpen={onOpen}
+          onDownload={handleDownloadImage}
+        />
       </div>
 
       <div className={classes.titleBox}>

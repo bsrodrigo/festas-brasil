@@ -2,7 +2,7 @@ export type musicType = {
   index?: number;
   src: string;
   title: string;
-  artist: string;
+  artist?: string;
   imageSrc: string;
 };
 
@@ -57,9 +57,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/carnaval.png",
     music: {
-      title: "Happy Rock",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-happyrock.mp3",
+      title: "Na base do beijo",
+      artist: "Ivete Sangalo",
+      src: "/sounds/carnaval.mp3",
       imageSrc: "/images/carnaval.png",
     },
   },
@@ -99,9 +99,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/festa-divino.png",
     music: {
-      title: "Badass",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-badass.mp3",
+      title: "Festa do Divino",
+      artist: "Célia Valadão",
+      src: "/sounds/festa-divino.mp3",
       imageSrc: "/images/festa-divino.png",
     },
   },
@@ -142,9 +142,8 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/sao-joao.png",
     music: {
-      title: "Jazzy Frenchy",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-jazzyfrenchy.mp3",
+      title: "Festa na Roça",
+      src: "/sounds/sao-joao.mp3",
       imageSrc: "/images/sao-joao.png",
     },
   },
@@ -170,9 +169,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/oktoberfest.png",
     music: {
-      title: "Badass",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-badass.mp3",
+      title: "Marcha do Coelho",
+      artist: "Os Montanari",
+      src: "/sounds/oktoberfest.mp3",
       imageSrc: "/images/oktoberfest.png",
     },
   },
@@ -208,9 +207,9 @@ export const partiesListMock: partyType[] = [
 
     imageSrc: "/images/virada-cultural.png",
     music: {
-      title: "Creepy",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-creepy.mp3",
+      title: "Telegrama",
+      artist: "Zeca Baleiro",
+      src: "/sounds/virada-cultural.mp3",
       imageSrc: "/images/virada-cultural.png",
     },
   },
@@ -245,9 +244,8 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/congada.png",
     music: {
-      title: "Ukulele",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-ukulele.mp3",
+      title: "CONGADOS DE OURO PRETO ",
+      src: "/sounds/congada.mp3",
       imageSrc: "/images/congada.png",
     },
   },
@@ -285,9 +283,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/festival-folclorico.png",
     music: {
-      title: "High Octane",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-highoctane.mp3",
+      title: "Boi Caprichoso",
+      artist: "Viva a Cultura Popular",
+      src: "/sounds/festival-folclorico.mp3",
       imageSrc: "/images/festival-folclorico.png",
     },
   },
@@ -320,9 +318,8 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/folia-reis.png",
     music: {
-      title: "Acoustic Breeze",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3",
+      title: "Folia de Reis - Chegada de Santos Reis",
+      src: "/sounds/folia-reis.mp3",
       imageSrc: "/images/folia-reis.png",
     },
   },
@@ -342,9 +339,8 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/iemanja.png",
     music: {
-      title: "Summer",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-summer.mp3",
+      title: "Canto de Iemanjá",
+      src: "/sounds/iemanja.mp3",
       imageSrc: "/images/iemanja.png",
     },
   },
@@ -364,9 +360,8 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/marreco.png",
     music: {
-      title: "Summer",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-summer.mp3",
+      title: "Primeiro Sábado Fenarreco 2019 - Brusque",
+      src: "/sounds/marreco.mp3",
       imageSrc: "/images/marreco.png",
     },
   },
@@ -398,9 +393,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/flip.png",
     music: {
-      title: "Brazil Samba",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-brazilsamba.mp3",
+      title: "Figuras de Linguagem do Amor",
+      artist: "Vesti & Bular",
+      src: "/sounds/flip.mp3",
       imageSrc: "/images/flip.png",
     },
   },
@@ -434,9 +429,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/parada-lgbt.png",
     music: {
-      title: "Punky",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-punky.mp3",
+      title: "Indestrutível",
+      artist: "Pabllo Vittar",
+      src: "/sounds/parada-lgbt.mp3",
       imageSrc: "/images/parada-lgbt.png",
     },
   },
@@ -464,9 +459,9 @@ export const partiesListMock: partyType[] = [
     ],
     imageSrc: "/images/escadaria-bonfim.png",
     music: {
-      title: "Summer",
-      artist: "Bensound",
-      src: "https://www.bensound.com/bensound-music/bensound-summer.mp3",
+      title: "Ilha de Maré",
+      artist: "Alcione Salvador",
+      src: "/sounds/escadaria-bonfim.mp3",
       imageSrc: "/images/escadaria-bonfim.png",
     },
   },

@@ -47,12 +47,7 @@ export const BannersList: React.FC<IBannerList> = ({ items, onFixedMusic }) => {
         ))}
       </div>
 
-      <BannerModal
-        open={open}
-        party={partySelected}
-        onClose={handleClose}
-        onOpen={() => setOpen(true)}
-      />
+      <BannerModal open={open} party={partySelected} onClose={handleClose} />
     </div>
   );
 };
